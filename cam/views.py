@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.decorators import gzip
 from django.http import HttpResponse,StreamingHttpResponse
 import cv2
 import time
@@ -19,9 +20,12 @@ class VideoCamera(object):
 def gen(camera):
     while True:
         frame = camera.get_frame()
-        yield(frame)
-        time.sleep(1)
+        yield(b'--frame\r\n'
+        b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
-def index(request):
-    # response = HttpResponse(gen(VideoCamera())
-    return StreamingHttpResponse(gen(VideoCamera()),content_type="image/jpeg")
+@gzip.gzip_page
+def index(request): 
+    try:
+        return StreamingHttpResponse(gen(VideoCamera()),content_type="multipart/x-mixed-replace;boundary=frame")
+    except HttpResponseServerError as e:
+        print("aborted")
