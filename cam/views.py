@@ -9,8 +9,8 @@ import time
 class VideoCamera(object):
     def __init__(self):
         self.video = cv2.VideoCapture(0)
-        self.height = 1080
-        self.width = 1920
+        self.height = 480
+        self.width = 640
         self.video.set(3, self.width)  # Set horizontal resolution
         self.video.set(4, self.height)  # Set vertical resolution
     def __del__(self):

@@ -25,7 +25,7 @@ SECRET_KEY = '^er&1_+x729xz2gj@rxbwidfwf133g6j_zz-q%c6-v9x(i@t3s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'purp.local', '192.168.8.149']
+ALLOWED_HOSTS = ['purp.local',]
 
 # Application definition
 
@@ -118,3 +118,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
