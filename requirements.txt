@@ -6,3 +6,4 @@ sqlparse==0.4.1
 djangorestframework
 markdown
 django-filter
+opencv-python
