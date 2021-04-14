@@ -19,3 +19,14 @@ python3 manage.py runserver 0.0.0.0:8000
 ### Extra 
 1.) May need to change allowed hosts file depending on your machines ip. 
 2.) Access the url at your machines ip you added in the hosts file ex: 192.168.9.105:8000/bulbs
+
+### Setup servo arm
+1.) cd PCA9685
+2.) make
+3.) mkdir /usr/local/lib/tup
+4.) mv RunServoDemo.so /usr/local/lib/tup.
+5.) touch /etc/ld.so.conf.d/libtup.conf
+6.) use editor of choice to paste this in libtup.conf `/usr/local/lib/tup` 
+7.) Add this to .bashrc or .zshrc and source your config `export LD_LIBRARY_PATH='/usr/local/lib/tup:$LD_LIBRARY_PATH`
+
+
