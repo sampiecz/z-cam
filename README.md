@@ -4,7 +4,7 @@
 
 ### Install linux packages
 
-sudo apt-get install libcblas-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test libopenjp2-7 libilmbase23 libilmbase-dev libopenexr-dev libgstreamer1.0-dev libavcodec-dev
+sudo apt-get install libatlas-base-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test libopenjp2-7 libilmbase23 libilmbase-dev libopenexr-dev libgstreamer1.0-dev libavcodec-dev
 
 
 ### Install requirements 
