@@ -18,7 +18,7 @@ python3 manage.py runserver 0.0.0.0:8000
 
 ### Extra 
 1.) May need to change allowed hosts file depending on your machines ip. 
-2.) Access the url at your machines ip you added in the hosts file ex: 192.168.9.105:8000/bulbs
+2.) Access the url at your machines ip you added in the hosts file ex: http://raspberrypi.local:8000/cam
 
 ### Setup servo arm
 1.) cd PCA9685
