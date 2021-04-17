@@ -16,7 +16,7 @@ python3 manage.py migrate
 ### Start project
 python3 manage.py runserver 0.0.0.0:8000
 
-### Extra 
+### Accessing Device on network
 1.) May need to change allowed hosts file depending on your machines ip. 
 
 2.) Access the url at your machines ip you added in the hosts file ex: http://raspberrypi.local:8000/cam
