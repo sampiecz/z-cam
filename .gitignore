@@ -275,11 +275,9 @@ tags
 
 ### Project template
 
-sam_site/media/
-
-sam_site/static/bundles/
-
-sam_site/webpack-stats.json
+/media/
+cam/static/bundles/
+cam/static/webpack-stats.json
 
 .pytest_cache/
 
