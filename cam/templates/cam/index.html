@@ -1,11 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-  </head>
-  <body>
-    <h1>Z Cam</h1>
-    <img style="width: 100%; height:100%;" src="{{ video_feed }}"/>
-  </body>
-</html>
+{% extends "cam/base.html" %}
+{% load render_bundle from webpack_loader %}
+
+{% block content %}
+  <div id="react"></div>
+	<script>
+		window.props = {{ props|safe }}
+		window.react_mount = document.getElementById('react')
+	</script>
+  {% render_bundle 'cam' %}
+{% endblock content %}
+

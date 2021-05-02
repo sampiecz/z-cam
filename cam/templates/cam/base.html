@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" >
+    {% block css %}
+    {% endblock css %}
+  </head>
+  <body>
+  <div>
+      {% block content %}
+      {% endblock content %}
+	</div>
+    {% block javascript %}
+    {% endblock javascript %}
+  </body>
+</html> 

@@ -1,0 +1,44 @@
+{
+  "name": "z_cam",
+  "version": "1.0.0",
+  "description": "It's my site.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --mode development --hot --content-base .",
+    "build": "webpack --config webpack.config.js --progress --colors --mode production",
+    "watch": "webpack --config webpack.config.js --watch --mode development"
+  },
+  "author": "Samuel Piecz",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-prismjs": "^2.0.1",
+    "csv-loader": "^3.0.3",
+    "d3": "^5.16.0",
+    "image-webpack-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "papaparse": "^5.3.0",
+    "sass-loader": "^8.0.2",
+    "svg-inline-loader": "^0.8.2",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.44.2",
+    "webpack-bundle-tracker": "^0.4.3",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "css-loader": "^3.6.0",
+    "d3-fetch": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1"
+  }
+}

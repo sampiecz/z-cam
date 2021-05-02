@@ -7,3 +7,14 @@ djangorestframework
 markdown
 django-filter
 opencv-python
+pillow
+
+# Django REST Framework
+djangorestframework  # https://github.com/encode/django-rest-framework
+coreapi  # https://github.com/core-api/python-client
+
+# Django Webpack Loader
+django-webpack-loader  # https://github.com/owais/django-webpack-loader 
+
+# Headers
+django-cors-headers
