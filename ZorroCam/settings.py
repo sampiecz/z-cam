@@ -25,7 +25,7 @@ SECRET_KEY = '^er&1_+x729xz2gj@rxbwidfwf133g6j_zz-q%c6-v9x(i@t3s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['red.local',]
+ALLOWED_HOSTS = ['red.local','rainbow.local']
 
 # Application definition
 
