@@ -25,7 +25,11 @@ SECRET_KEY = '^er&1_+x729xz2gj@rxbwidfwf133g6j_zz-q%c6-v9x(i@t3s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['red.local','rainbow.local']
+=======
+ALLOWED_HOSTS = ['red.local','purp.local', 'toxic.local']
+>>>>>>> 09c5de6691c77c77e781a49bd24fd56f796cd376
 
 # Application definition
 
