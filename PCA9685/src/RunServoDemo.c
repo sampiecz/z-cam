@@ -22,36 +22,26 @@ int get_key_board_from_termios()
     return key_value;
 }
 
-void processKeyboardEvent(void){
-    int keyVal = 0;
-    while(1){
-        usleep(100);
-        tcflush(0, TCIOFLUSH);
-        keyVal= get_key_board_from_termios();
-        if(keyVal == 27){
-            keyVal= get_key_board_from_termios();
-            if(keyVal == 91){
-              keyVal= get_key_board_from_termios();
-               switch (keyVal)
-                {
-                    case 65/* up */:   
-                        ServoDegreeIncrease(SERVO_UP_CH, STEP);
-                        break;
-                    case 66/* down */:
-                        ServoDegreeDecrease(SERVO_UP_CH, STEP);
-                        break;
-                    case 67/* right */: 
-                        ServoDegreeIncrease(SERVO_DOWN_CH, STEP);
-                      break;
-                    case 68/* left */: 
-                        ServoDegreeDecrease(SERVO_DOWN_CH, STEP);
-                        break;   
-                    default :
-                      break;
-                }
-            }
-          }
-      }
+void processKeyboardEvent(int direction){
+    usleep(100);
+    tcflush(0, TCIOFLUSH);
+    switch (direction)
+    {
+        case 0/* up */:   
+            ServoDegreeIncrease(SERVO_UP_CH, STEP);
+            break;
+        case 1/* down */:
+            ServoDegreeDecrease(SERVO_UP_CH, STEP);
+            break;
+        case 2/* right */: 
+            ServoDegreeIncrease(SERVO_DOWN_CH, STEP);
+          break;
+        case 3/* left */: 
+            ServoDegreeDecrease(SERVO_DOWN_CH, STEP);
+            break;   
+        default :
+          break;
+    }
 }
 
 int main(int argc, char *argv[]){
@@ -60,10 +50,5 @@ int main(int argc, char *argv[]){
     setServoDegree(SERVO_UP_CH, ServoUpDegree);
     setServoDegree(SERVO_DOWN_CH, ServoDownDegree);
     delay_ms(1000);
-    processKeyboardEvent();
 }
-
-
-
-
 

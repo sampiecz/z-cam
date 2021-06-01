@@ -25,16 +25,13 @@ SECRET_KEY = '^er&1_+x729xz2gj@rxbwidfwf133g6j_zz-q%c6-v9x(i@t3s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['red.local','rainbow.local']
-=======
-ALLOWED_HOSTS = ['red.local','purp.local', 'toxic.local']
->>>>>>> 09c5de6691c77c77e781a49bd24fd56f796cd376
+ALLOWED_HOSTS = ['red.local','purp.local','toxic.local','rainbow.local']
 
 # Application definition
 
 INSTALLED_APPS = [
     'cam.apps.CamConfig',
+    'servo.apps.ServoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +57,7 @@ ROOT_URLCONF = 'ZorroCam.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(str(BASE_DIR) + '/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +122,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+
+# Webpack Loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'js/bundles/',
+        'STATS_FILE': str(BASE_DIR) + '/webpack-stats.json',
+    }
+}
