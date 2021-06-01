@@ -5,7 +5,7 @@ export default function VideoStream() {
   return (
 		<div>
 			<h1>ZorroCam</h1>
-			<img width="320" height="240" src="http://rainbow.local:8000/cam/stream"/>
+			<img width="100%" height="100%" src="/cam/stream"/>
 		</div>	
   );
 } 
