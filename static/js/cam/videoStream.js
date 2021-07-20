@@ -5,7 +5,7 @@ export default function VideoStream() {
   return (
 		<div>
 			<h1>ZorroCam</h1>
-			<img width="100%" height="100%" src="/cam/stream"/>
+			<img width="640" height="480" src="/cam/stream"/>
 		</div>	
   );
 } 

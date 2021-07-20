@@ -1,0 +1,46 @@
+FROM python:3
+
+# set a directory for the app
+WORKDIR /usr/src/app
+
+# copy all the files to the container
+COPY . .
+
+# install system dependencies
+RUN apt update -y  && \
+ 	apt upgrade -y && \
+ 	apt install -y \
+  libatlas3-base \
+  libwebp6 \
+  libtiff5 \
+  libilmbase23 \
+  libopenexr23 \
+  libavcodec58 \
+  libavformat58 \
+  libavutil56 \
+  libswscale5 \
+  libgtk-3-0 \
+  libpangocairo-1.0-0 \
+  libpango-1.0-0 \
+  libatk1.0-0 \
+  libcairo-gobject2 \
+  libcairo2 \
+  libgdk-pixbuf2.0-0 \
+  libqtgui4 \
+  libqt4-test \
+  libqtcore4
+
+# install python dependencies
+RUN pip3 install --upgrade pip setuptools wheel 
+
+RUN git clone https://github.com/jasperproject/jasper-client.git jasper && \
+  chmod +x jasper/jasper.py && \
+  pip3 install -r jasper/client/requirements.txt
+
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# The port this runs on
+EXPOSE 9000
+
+# Start django
+CMD ["python3" ,"manage.py", "runserver", "0.0.0.0:9000"]
