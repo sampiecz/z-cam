@@ -11,7 +11,6 @@ ENV OPENCV_VERSION="4.5.1"
 RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends \
         build-essential \
-				cmake \
         git \
         wget \
         unzip \
@@ -29,14 +28,19 @@ RUN apt-get -qq update \
     && pip install numpy \
     && wget -q https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip -O opencv.zip \
 
+
+
+
+
+
     && unzip -qq opencv.zip -d /opt \
     && rm -rf opencv.zip \
-    && cmake \
+    && make \
         -D BUILD_TIFF=ON \
         -D BUILD_opencv_java=OFF \
         -D WITH_CUDA=OFF \
-        -D WITH_OPENGL=OFF \
-        -D WITH_OPENCL=OFF \
+        -D WITH_OPENGL=ON \
+        -D WITH_OPENCL=ON \
         -D WITH_IPP=OFF \
         -D WITH_TBB=ON \
         -D WITH_EIGEN=ON \
