@@ -5,3 +5,4 @@ node_modules/
 static/js/bundles/
 webpack-stats.json
 package-lock.json
+obj/

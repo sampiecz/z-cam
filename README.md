@@ -2,6 +2,11 @@
 
 ## Running the project
 
+### Run with docker - below instructions were pre docker implementation but useful to understand how project functions
+
+docker build -t z_cam . && docker run --privileged -d -p 9000:9000 z_cam
+
+
 ### Install linux packages
 
 sudo apt-get install libatlas-base-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test libopenjp2-7 libilmbase23 libilmbase-dev libopenexr-dev libgstreamer1.0-dev libavcodec-dev libavformat-dev libswscale-dev libgtk-3-dev
@@ -35,5 +40,4 @@ python3 manage.py runserver 0.0.0.0:8000
 6.) use editor of choice to paste this in libtup.conf `/usr/local/lib/tup` 
 
 7.) Add this to .bashrc or .zshrc and source your config `export LD_LIBRARY_PATH='/usr/local/lib/tup:$LD_LIBRARY_PATH`
-
 
