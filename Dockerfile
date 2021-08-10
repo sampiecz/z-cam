@@ -72,28 +72,24 @@ RUN make \
 		&& touch /etc/ld.so.conf.d/libtup.conf \
 		&& echo /usr/local/lib/tup > /etc/ld.so.conf.d/libtup.conf
 	
-ENV export LD_LIBRARY_PATH="/usr/local/lib/tup:$LD_LIBRARY_PATH"
+ENV LD_LIBRARY_PATH="/usr/local/lib/tup:${LD_LIBRARY_PATH}"
 
 ########################
 # Get & compile nodejs # 
 ########################
-ENV VERSION=v14.17.3
-ENV DISTRO=linux-arm-v7l
-RUN wget https://nodejs.org/dist/{$VERSION}/node-{$VERSION}-{$DISTRO}.tar.xz \
+ENV VERSION=v14.17.4
+ENV DISTRO=linux-armv7l
+RUN wget https://nodejs.org/dist/${VERSION}/node-${VERSION}-${DISTRO}.tar.xz \
 		&& mkdir -p /usr/local/lib/nodejs \
-		&& tar -xJvf node-{$VERSION}-{$DISTRO}.tar.xz -C /usr/local/lib/nodejs \
-		&& rm node-{$VERSION}-{$DISTRO}.tar.xz \
-		&& cd node-{$VERSION}-{$DISTRO}/bin/npm \
-		&& ./configure \
-		&& make \
-		&& cd ..
-ENV export PATH="/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH"
+		&& tar -xJvf node-${VERSION}-${DISTRO}.tar.xz -C /usr/local/lib/nodejs \
+		&& rm node-${VERSION}-${DISTRO}.tar.xz
+ENV PATH="/usr/local/lib/nodejs/node-${VERSION}-${DISTRO}/bin:${PATH}"
 
 ########################
 # Generate js bundle   # 
 ########################
-RUN node-v14.17.3/npm install \
-		&& node-v14.17.3/npm run build 
+RUN npm install \
+		&& npm run build 
 
 ########################
 # Run Django app 
