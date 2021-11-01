@@ -61,10 +61,10 @@ RUN apt-get -qq update \
 ########################
 
 # set a directory for the app
-WORKDIR /usr/src/app
+WORKDIR /code
 
 # copy all the files to the container
-COPY . .
+COPY . /code
 
 RUN make \
 		&& mkdir /usr/local/lib/tup \
@@ -77,19 +77,19 @@ ENV LD_LIBRARY_PATH="/usr/local/lib/tup:${LD_LIBRARY_PATH}"
 ########################
 # Get & compile nodejs # 
 ########################
-ENV VERSION=v14.17.4
-ENV DISTRO=linux-armv7l
-RUN wget https://nodejs.org/dist/${VERSION}/node-${VERSION}-${DISTRO}.tar.xz \
-		&& mkdir -p /usr/local/lib/nodejs \
-		&& tar -xJvf node-${VERSION}-${DISTRO}.tar.xz -C /usr/local/lib/nodejs \
-		&& rm node-${VERSION}-${DISTRO}.tar.xz
-ENV PATH="/usr/local/lib/nodejs/node-${VERSION}-${DISTRO}/bin:${PATH}"
+# ENV VERSION=v14.17.4
+# ENV DISTRO=linux-armv7l
+# RUN wget https://nodejs.org/dist/${VERSION}/node-${VERSION}-${DISTRO}.tar.xz \
+# 		&& mkdir -p /usr/local/lib/nodejs \
+# 		&& tar -xJvf node-${VERSION}-${DISTRO}.tar.xz -C /usr/local/lib/nodejs \
+# 		&& rm node-${VERSION}-${DISTRO}.tar.xz
+# ENV PATH="/usr/local/lib/nodejs/node-${VERSION}-${DISTRO}/bin:${PATH}"
 
 ########################
 # Generate js bundle   # 
 ########################
-RUN npm install \
-		&& npm run build 
+# RUN npm install \
+# 		&& npm run build 
 
 ########################
 # Run Django app 
